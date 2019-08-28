@@ -1,0 +1,26 @@
+[
+   {
+      "name":"AR Games",
+      "category_icon": "icons8-front_view"
+   },
+   {
+      "name":"Indie",
+      "category_icon": "icons8-bracelet"
+   },
+   {
+      "name":"Casual",
+      "category_icon": "icons8-sci-fi"
+   },
+   {
+      "name":"Racing",
+      "category_icon": "icons8-finish_flag"
+   },
+   {
+      "name":"Puzzle",
+      "category_icon": "icons8-wrong_puzzle_piece"
+   },
+   {
+      "name":"Board",
+      "category_icon": "icons8-equestrian_statue"
+   },
+]
