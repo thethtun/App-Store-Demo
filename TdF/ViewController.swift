@@ -19,9 +19,11 @@ class ViewController: UIViewController {
         
         configureCollectionView()
         
+        //Image Loader
         let WebPCoder = SDImageWebPCoder.shared
         SDImageCodersManager.shared.addCoder(WebPCoder)
         
+        //Load Offline Json
         data = JsonUtils.loadJson(filename: "data")
         appCategory = JsonUtils.loadJson(filename: "AppCategories")
     }
@@ -30,17 +32,35 @@ class ViewController: UIViewController {
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: generateLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .systemBackground
+        
         collectionView.register(UINib(nibName: BigBannerCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: BigBannerCollectionViewCell.identifier)
         collectionView.register(UINib(nibName: SmallAppBannerCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: SmallAppBannerCollectionViewCell.identifier)
         collectionView.register(UINib(nibName: AppVideoCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: AppVideoCollectionViewCell.identifier)
         collectionView.register(UINib(nibName: BigAppBannerCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: BigAppBannerCollectionViewCell.identifier)
         collectionView.register(UINib(nibName: CategoryCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
         collectionView.register(TitleSupplementaryView.self, forSupplementaryViewOfKind: "header", withReuseIdentifier: TitleSupplementaryView.reuseIdentifier)
+        
         collectionView.dataSource = self
+        
         view.addSubview(collectionView)
     }
     
     private func generateLayout() -> UICollectionViewCompositionalLayout {
+        
+        /*
+         item
+         
+         item size
+         
+         group - item
+         
+         group size
+         
+         section - group
+         
+         */
+        
+        
         let layout = UICollectionViewCompositionalLayout{ (sectionIndex: Int,
                                                            layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             
@@ -85,6 +105,7 @@ class ViewController: UIViewController {
                 let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: sectionHeaderSize, elementKind: "header", alignment: .top)
                 
                 section.boundarySupplementaryItems = [sectionHeader]
+                
                 return section
                 
             } else if sectionIndex == 2 {
