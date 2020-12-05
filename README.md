@@ -1,5 +1,6 @@
 # App-Store-Demo
 
-![Alt text](./img_1.png?raw=true "Screen 1")
-
-![Alt text](./img_2.png?raw=true "Screen 2")
+<p align="center">
+  <img src="./img_1.png" width="350" title="Screen 1" alt="Screen 1">
+  <img src="./img_2.png" width="350" alt="Screen 2" title="Screen 2">
+</p>
